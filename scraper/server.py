@@ -17,17 +17,15 @@ app = Flask(__name__)
 
 @app.route('/editcount')
 def editcount():
-    search = request.args.get('search')
-    if not search:
-        search = "AlmaLinux"
-    results = wikipedia_histories.get_history(search)
+    question = request.args.get('q')
+    results = wikipedia_histories.get_history(question)
     return jsonify(edit_count(results))
 
 @app.route('/edittime')
 def edittime():
     search = request.args.get('search')
-    if not search:
-        search = "AlmaLinux"
+    #if not search:
+    #    search = "AlmaLinux"
     results = wikipedia_histories.get_history(search)
     return jsonify(edit_time(results))
 
