@@ -15,8 +15,8 @@ app = Flask(__name__)
 @app.route('/editcount')
 def editcount():
     search = request.args.get('search')
-    #if not search:
-    #    search = "AlmaLinux"
+    if not search:
+        search = "AlmaLinux"
     results = wikipedia_histories.get_history(search)
     return jsonify(count_edits_from_users(results))
 
