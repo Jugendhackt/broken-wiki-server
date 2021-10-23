@@ -23,6 +23,11 @@ def editcount():
     return jsonify(count_edits_from_users(results))
 print("suche gesetzt")
 
+@app.after_request
+def add_header(response):
+    response.headers["Access-Control-Allow-Origin"] = "*"
+    return response
+
 if __name__ == "__main__":
     app.run()
-print("webside gesterted")
+    print("webside gesterted")
