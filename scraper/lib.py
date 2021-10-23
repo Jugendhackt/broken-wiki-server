@@ -1,5 +1,3 @@
-import wikipedia_histories
-
 def count_edits_from_users(history):
     return_dict = {}
     for change in history:
@@ -9,6 +7,6 @@ def count_edits_from_users(history):
             return_dict.update({change.user: 1})
     return return_dict
 
-alma_linux = wikipedia_histories.get_history('AlmaLinux')
-print(count_edits_from_users(alma_linux))
+def changes_per_date(history):
+    return [revision.time for revision in golden_swallow]
 
