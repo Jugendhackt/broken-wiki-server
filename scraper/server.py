@@ -5,12 +5,14 @@ from flask import jsonify
 #from flask import render_template
 from lib import *
 
+print("debug getartet")
 #print(count_edits_from_users(alma_linux))
 app = Flask(__name__)
 
 #@app.route("/")
 #def index():
 #    return render_template("results.html") 
+
 
 @app.route('/editcount')
 def editcount():
@@ -19,6 +21,8 @@ def editcount():
         search = "AlmaLinux"
     results = wikipedia_histories.get_history(search)
     return jsonify(count_edits_from_users(results))
+print("suche gesetzt")
 
 if __name__ == "__main__":
     app.run()
+print("webside gesterted")
