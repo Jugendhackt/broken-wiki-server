@@ -23,10 +23,10 @@ def editcount():
 
 @app.route('/edittime')
 def edittime():
-    search = request.args.get('search')
+    questions = request.args.get('q')
     #if not search:
     #    search = "AlmaLinux"
-    results = wikipedia_histories.get_history(search)
+    results = wikipedia_histories.get_history(questions, include_text=False)
     return jsonify(edit_time(results))
 
 @app.after_request
