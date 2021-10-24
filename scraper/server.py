@@ -14,19 +14,19 @@ def editcount():
 
 @app.route('/edittime')
 def edittime():
-    questions = request.args.get('q')
+    question = request.args.get('q')
     results = wikipedia_histories.get_history(questions, include_text=False)
     return jsonify(edit_time(results))
 
 @app.route('/editmajor')
 def editmajorcount():
-    questio = request.args.get('q')
+    question = request.args.get('q')
     results = wikipedia_histories.get_history(questio, include_text=False)
     return jsonify(edit_time(results))
 
 @app.route('/editminor')
 def editminorcount():
-    questi = request.args.get('q')
+    question = request.args.get('q')
     results = wikipedia_histories.get_history(questi, include_text=False)
     return jsonify(edit_time(results))
 
