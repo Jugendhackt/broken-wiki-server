@@ -18,7 +18,7 @@ app = Flask(__name__)
 @app.route('/editcount')
 def editcount():
     question = request.args.get('q')
-    results = wikipedia_histories.get_history(question)
+    results = wikipedia_histories.get_history(question, include_text=False)
     return jsonify(edit_count(results))
 
 @app.route('/edittime')
