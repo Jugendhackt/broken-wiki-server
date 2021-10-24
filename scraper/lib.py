@@ -1,3 +1,5 @@
+import wikipedia_histories
+
 def edit_count(history):
     return_dict = {}
     for change in history:
@@ -16,3 +18,8 @@ def edit_time(history):
             return_dict.update({change.time.strftime("%d-%m-%Y"): 1})
     return return_dict
 
+if __name__ == "__main__":
+    search = "AlmaLinux"
+    results = wikipedia_histories.get_history(search)
+    returned = edit_count(results)
+    print(returned) 
